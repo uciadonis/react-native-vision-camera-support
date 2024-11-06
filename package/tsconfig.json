@@ -19,9 +19,18 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "esnext",
-    "outDir": "lib",
-    "declaration": true
+    "outDir": "lib"
   },
-  "include": ["src", ".eslintrc.js", "babel.config.js", "react-native.config.js"],
-  "exclude": ["node_modules", "lib", "docs", "example"]
+  "include": [
+    "src",
+    ".eslintrc.js",
+    "babel.config.js",
+    "react-native.config.js",
+  ],
+  "exclude": [
+    "node_modules",
+    "lib",
+    "docs",
+    "example"
+  ]
 }

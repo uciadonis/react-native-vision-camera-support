@@ -1,20 +1,29 @@
 #!/bin/bash
 
 cd "$(dirname "$0")"
-cd ../../
+cd ..
 echo "Running clean script in $PWD"
 
-cd example/android
+cd android
 echo "./gradlew clean"
 ./gradlew clean
 
-echo "cd ../../"
 echo "rm -rf node_modules"
 rm -rf node_modules
-echo "rm -rf bun.lockb"
-rm -rf bun.lockb
+echo "rm -rf yarn.lock"
+rm -rf yarn.lock
+rm -rf package-lock.json
 
+echo "cd example"
 cd example
+
+echo "rm -rf node_modules"
+rm -rf node_modules
+echo "rm -rf yarn.lock"
+rm -rf yarn.lock
+rm -rf package-lock.json
+
+cd ..
 
 echo "rm -rf android/.cxx"
 rm -rf android/.cxx
@@ -23,7 +32,9 @@ rm -rf android/.gradle
 echo "rm -rf android/build"
 rm -rf android/build
 
-cd ../
+echo "yarn in $PWD"
+yarn
 
-echo "bun in $PWD"
-bun install
+cd example
+echo "yarn in $PWD"
+yarn
