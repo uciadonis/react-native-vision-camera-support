@@ -8,8 +8,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 <div class="image-container">
   <svg xmlns="http://www.w3.org/2000/svg" width="283" height="535">
-    <image href={useBaseUrl("img/demo.gif")} x="18" y="33" width="247" height="469" />
-    <image href={useBaseUrl("img/frame.png")} width="283" height="535" />
+    <image href={useBaseUrl('img/demo.gif')} x="18" y="33" width="247" height="469" />
+    <image href={useBaseUrl('img/frame.png')} width="283" height="535" />
   </svg>
 </div>
 
@@ -25,9 +25,9 @@ If you want to setup a custom gesture, such as the one in Snapchat or Instagram 
 
 A Camera device has different minimum, maximum and neutral zoom values. Those values are expressed through the `CameraDevice`'s [`minZoom`](/docs/api/interfaces/CameraDevice#minzoom), [`maxZoom`](/docs/api/interfaces/CameraDevice#maxzoom) and [`neutralZoom`](/docs/api/interfaces/CameraDevice#neutralzoom) props, and are represented in "scale". So if the `maxZoom` property of a device is `2`, that means the view can be enlarged by twice it's zoom, aka the viewport halves.
 
-* The `minZoom` value is always `1`.
-* The `maxZoom` value can have very high values (such as `128`), but often you want to clamp this value to something realistic like `16`.
-* The `neutralZoom` value is often `1`, but can be larger than `1` for devices with "fish-eye" (ultra-wide-angle) cameras. In those cases, the user expects to be at whatever zoom value `neutralZoom` is (e.g. `2`) per default, and if he tries to zoom out even more, he goes to `minZoom` (`1`), which switches over to the "fish-eye" (ultra-wide-angle) camera as seen in this GIF:
+- The `minZoom` value is always `1`.
+- The `maxZoom` value can have very high values (such as `128`), but often you want to clamp this value to something realistic like `16`.
+- The `neutralZoom` value is often `1`, but can be larger than `1` for devices with "fish-eye" (ultra-wide-angle) cameras. In those cases, the user expects to be at whatever zoom value `neutralZoom` is (e.g. `2`) per default, and if he tries to zoom out even more, he goes to `minZoom` (`1`), which switches over to the "fish-eye" (ultra-wide-angle) camera as seen in this GIF:
 
 <div align="center">
   <img class="doc-image" src="/img/multi-camera.gif" />
@@ -60,7 +60,7 @@ While you can use any animation library to animate the `zoom` property (or use n
 The following example implements a pinch-to-zoom gesture using [react-native-gesture-handler](https://github.com/software-mansion/react-native-gesture-handler/) and [react-native-reanimated](https://github.com/software-mansion/react-native-reanimated):
 
 ```tsx
-import { Camera, useCameraDevice, CameraProps } from 'react-native-vision-camera'
+import { Camera, useCameraDevice, CameraProps } from 'react-native-vision-camera-support'
 import Reanimated, { useAnimatedProps, useSharedValue } from 'react-native-reanimated'
 import { Gesture, GestureDetector } from 'react-native-gesture-handler'
 
@@ -76,26 +76,18 @@ export function App() {
   // highlight-next-line
   const zoom = useSharedValue(device.neutralZoom)
 
-  const zoomOffset = useSharedValue(0);
+  const zoomOffset = useSharedValue(0)
   const gesture = Gesture.Pinch()
     .onBegin(() => {
       zoomOffset.value = zoom.value
     })
-    .onUpdate(event => {
+    .onUpdate((event) => {
       const z = zoomOffset.value * event.scale
-      zoom.value = interpolate(
-        z,
-        [1, 10],
-        [device.minZoom, device.maxZoom],
-        Extrapolation.CLAMP,
-      )
+      zoom.value = interpolate(z, [1, 10], [device.minZoom, device.maxZoom], Extrapolation.CLAMP)
     })
 
   // highlight-start
-  const animatedProps = useAnimatedProps<CameraProps>(
-    () => ({ zoom: zoom.value }),
-    [zoom]
-  )
+  const animatedProps = useAnimatedProps<CameraProps>(() => ({ zoom: zoom.value }), [zoom])
   // highlight-end
 
   if (device == null) return <NoCameraDeviceError />

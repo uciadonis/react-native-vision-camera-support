@@ -1,6 +1,6 @@
 name: 🐛 Bug Report
 description: File a bug report
-title: "🐛 "
+title: '🐛 '
 labels: [🐛 bug]
 body:
   - type: textarea
@@ -104,7 +104,7 @@ body:
   - type: input
     attributes:
       label: VisionCamera Version
-      description: Which version of react-native-vision-camera are you using?
+      description: Which version of 'react-native-vision-camera-support are you using?
       placeholder: ex. 3.1.6
     validations:
       required: true

@@ -10,8 +10,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 <div class="image-container">
   <svg xmlns="http://www.w3.org/2000/svg" width="283" height="535">
-    <image href={useBaseUrl("img/demo.gif")} x="18" y="33" width="247" height="469" />
-    <image href={useBaseUrl("img/frame.png")} width="283" height="535" />
+    <image href={useBaseUrl('img/demo.gif')} x="18" y="33" width="247" height="469" />
+    <image href={useBaseUrl('img/frame.png')} width="283" height="535" />
   </svg>
 </div>
 
@@ -57,7 +57,7 @@ Add the `enableCodeScanner` flag to your Expo config (`app.json`, `app.config.js
   "name": "my app",
   "plugins": [
     [
-      "react-native-vision-camera",
+      "react-native-vision-camera-support",
       {
         // ...
         "enableCodeScanner": true
@@ -88,7 +88,7 @@ const codeScanner = useCodeScanner({
   codeTypes: ['qr', 'ean-13'],
   onCodeScanned: (codes) => {
     console.log(`Scanned ${codes.length} codes!`)
-  }
+  },
 })
 
 return <Camera {...props} codeScanner={codeScanner} />
@@ -104,7 +104,7 @@ const codeScanner: CodeScanner = {
   codeTypes: ['qr', 'ean-13'],
   onCodeScanned: (codes) => {
     console.log(`Scanned ${codes.length} codes!`)
-  }
+  },
 }
 ```
 
@@ -134,9 +134,9 @@ const codeScanner = useCodeScanner({
   codeTypes: ['upc-a'], // <-- ✅ We configure for 'upc-a' types
   onCodeScanned: (codes) => {
     for (const code of codes) {
-      console.log(code.type); // <-- ❌ On iOS, we receive 'ean-13'
+      console.log(code.type) // <-- ❌ On iOS, we receive 'ean-13'
     }
-  }
+  },
 })
 ```
 

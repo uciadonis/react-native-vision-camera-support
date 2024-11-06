@@ -10,8 +10,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 <div class="image-container">
   <svg xmlns="http://www.w3.org/2000/svg" width="283" height="535">
-    <image href={useBaseUrl("img/frame-processors.gif")} x="18" y="33" width="247" height="469" />
-    <image href={useBaseUrl("img/frame.png")} width="283" height="535" />
+    <image href={useBaseUrl('img/frame-processors.gif')} x="18" y="33" width="247" height="469" />
+    <image href={useBaseUrl('img/frame.png')} width="283" height="535" />
   </svg>
 </div>
 
@@ -36,14 +36,14 @@ return <Camera frameProcessor={frameProcessor} />
 
 Due to their extensible plugin-based nature, Frame Processors can be used for all sorts of things, like:
 
-* **ML** for **face recognition**
-* Using **Tensorflow**/**TFLite**, **MLKit Vision**, **Apple Vision** or other libraries
-* Creating **realtime video-chats** using **WebRTC** to directly send the camera frames over the network
-* Creating scanners for custom codes such as **Snapchat's SnapCodes** or **Apple's AppClips**
-* Creating **snapchat-like filters**, e.g. draw a dog-mask filter over the user's face
-* Creating **color filters** with depth-detection
-* **Drawing** boxes, text, overlays, or colors on the screen in realtime
-* Rendering **filters** and shaders such as Blur, inverted colors, beauty filter, or more on the screen
+- **ML** for **face recognition**
+- Using **Tensorflow**/**TFLite**, **MLKit Vision**, **Apple Vision** or other libraries
+- Creating **realtime video-chats** using **WebRTC** to directly send the camera frames over the network
+- Creating scanners for custom codes such as **Snapchat's SnapCodes** or **Apple's AppClips**
+- Creating **snapchat-like filters**, e.g. draw a dog-mask filter over the user's face
+- Creating **color filters** with depth-detection
+- **Drawing** boxes, text, overlays, or colors on the screen in realtime
+- Rendering **filters** and shaders such as Blur, inverted colors, beauty filter, or more on the screen
 
 ## Installation
 
@@ -57,9 +57,7 @@ And add the plugin to your `babel.config.js`:
 
 ```js
 module.exports = {
-  plugins: [
-    ['react-native-worklets-core/plugin'],
-  ],
+  plugins: [['react-native-worklets-core/plugin']],
 }
 ```
 
@@ -108,11 +106,14 @@ For example, the `sensitivity` value can be tweaked on-the-fly via fast-refresh 
 
 ```ts
 const sensitivity = 0.8
-const frameProcessor = useFrameProcessor((frame) => {
-  'worklet'
-  const faces = detectFaces(frame, { sensitivity: sensitivity })
-  // ...
-}, [sensitivity])
+const frameProcessor = useFrameProcessor(
+  (frame) => {
+    'worklet'
+    const faces = detectFaces(frame, { sensitivity: sensitivity })
+    // ...
+  },
+  [sensitivity],
+)
 ```
 
 ### Using Community Plugins
@@ -129,12 +130,15 @@ That's it! 🎉 Now you can use it:
 ```ts
 const { labelImage } = useImageLabeler()
 
-const frameProcessor = useFrameProcessor((frame) => {
-  'worklet'
-  const labels = labelImage(frame)
-  const label = labels[0].name
-  console.log(`You're looking at a ${label}.`)
-}, [labelImage])
+const frameProcessor = useFrameProcessor(
+  (frame) => {
+    'worklet'
+    const labels = labelImage(frame)
+    const label = labels[0].name
+    console.log(`You're looking at a ${label}.`)
+  },
+  [labelImage],
+)
 ```
 
 Check out [Frame Processor community plugins](/docs/guides/frame-processor-plugins-community) to discover available community plugins.
@@ -212,19 +216,19 @@ As Frame Processors run synchronously in the video pipeline, you need to complet
 :::tip
 The lower the video resolution of your [format](/docs/guides/formats), the faster your Frame Processor can execute.
 For example, if your ML model is trained on 1280x720, use the format closest to that resolution:
+
 ```ts
-const format = useCameraFormat(device, [
-  { videoResolution: { width: 1280, height: 720 } }
-])
+const format = useCameraFormat(device, [{ videoResolution: { width: 1280, height: 720 } }])
 ```
+
 :::
 
 ### Benchmarks
 
 Frame Processors are _really_ fast. I have used [MLKit Vision Image Labeling](https://firebase.google.com/docs/ml-kit/ios/label-images) to label 4k Camera frames in realtime, and measured the following results:
 
-* Fully natively (written in pure Objective-C, no React interaction at all), I have measured an average of **68ms** per call.
-* As a Frame Processor Plugin (written in Objective-C, called through a JS Frame Processor function), I have measured an average of **69ms** per call.
+- Fully natively (written in pure Objective-C, no React interaction at all), I have measured an average of **68ms** per call.
+- As a Frame Processor Plugin (written in Objective-C, called through a JS Frame Processor function), I have measured an average of **69ms** per call.
 
 This means that the Frame Processor API only takes ~1ms longer than a fully native implementation, making it **the fastest and easiest way to run any sort of Frame Processing in React Native**.
 
@@ -270,7 +274,7 @@ Inside your Expo config (`app.json`, `app.config.json` or `app.config.js`), add 
   "name": "my app",
   "plugins": [
     [
-      "react-native-vision-camera",
+      "react-native-vision-camera-support",
       {
         // ...
         "enableFrameProcessors": false

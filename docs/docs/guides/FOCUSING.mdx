@@ -25,7 +25,7 @@ Focussing adjusts auto-focus (AF) and auto-exposure (AE).
 This is an Example on how to use [react-native-gesture-handler](https://github.com/software-mansion/react-native-gesture-handler/) to focus the Camera to a specific point on the screen:
 
 ```tsx
-import { Camera, useCameraDevice } from 'react-native-vision-camera'
+import { Camera, useCameraDevice } from 'react-native-vision-camera-support'
 import { Gesture, GestureDetector } from 'react-native-gesture-handler'
 
 export function App() {
@@ -38,20 +38,14 @@ export function App() {
     c.focus(point)
   }, [])
 
-  const gesture = Gesture.Tap()
-    .onEnd(({ x, y }) => {
-      runOnJS(focus)({ x, y })
-    })
+  const gesture = Gesture.Tap().onEnd(({ x, y }) => {
+    runOnJS(focus)({ x, y })
+  })
 
   if (device == null) return <NoCameraDeviceError />
   return (
     <GestureDetector gesture={gesture}>
-      <Camera
-        ref={camera}
-        style={StyleSheet.absoluteFill}
-        device={device}
-        isActive={true}
-      />
+      <Camera ref={camera} style={StyleSheet.absoluteFill} device={device} isActive={true} />
     </GestureDetector>
   )
 }

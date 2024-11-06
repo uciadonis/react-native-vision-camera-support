@@ -7,6 +7,6 @@
     "docs"
   ],
   "trustedDependencies": [
-    "react-native-vision-camera"
+    "react-native-vision-camera-support"
   ]
 }

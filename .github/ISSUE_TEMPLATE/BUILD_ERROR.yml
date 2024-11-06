@@ -1,13 +1,13 @@
 name: 🔧 Build Error
 description: File a build error bug report
-title: "🔧 "
+title: '🔧 '
 labels: [🔧 build error]
 body:
   - type: textarea
     attributes:
       label: How were you trying to build the app?
       description: Explain how you tried to build the app, through Xcode, `yarn ios`, a CI, or other. Be as precise as possible, I can't help you if I don't understand your issue.
-      placeholder: I tried to build my app with react-native-vision-camera using the `yarn ios` command, and it failed.
+      placeholder: I tried to build my app with 'react-native-vision-camera-support using the `yarn ios` command, and it failed.
     validations:
       required: true
   - type: textarea
@@ -34,7 +34,7 @@ body:
         "dependencies": {
           "react-native": "^0.73.4",
           "react-native-reanimated": "^3.9.0",
-          "react-native-vision-camera": "^4.0.0",
+          "react-native-vision-camera-support": "^4.0.0",
           "react-native-worklets-core": "^1.0.0",
           ...
         },
@@ -43,7 +43,7 @@ body:
   - type: input
     attributes:
       label: VisionCamera Version
-      description: Which version of react-native-vision-camera are you using?
+      description: Which version of 'react-native-vision-camera-support are you using?
       placeholder: ex. 3.1.6
     validations:
       required: true

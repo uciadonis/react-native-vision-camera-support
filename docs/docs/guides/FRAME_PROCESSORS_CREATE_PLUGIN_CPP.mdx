@@ -54,7 +54,6 @@ const frameProcessor = useFrameProcessor((frame) => {
 
 To include VisionCamera's C++ library in your plugin's C++ code, you need to link it and include the headers.
 
-
 <Tabs
   groupId="platform"
   defaultValue="ios"
@@ -84,7 +83,7 @@ VisionCamera is built using **prefabs**, which allow you to easily extend the li
 To link VisionCamera in your package's `CMakeLists.txt`, just add the library:
 
 ```make
-find_package(react-native-vision-camera REQUIRED CONFIG)
+find_package('react-native-vision-camera-support REQUIRED CONFIG)
 # ...
 target_link_libraries(
   ${PACKAGE_NAME}

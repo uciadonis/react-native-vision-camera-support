@@ -9,7 +9,7 @@ module.exports = {
   onBrokenMarkdownLinks: 'throw',
   favicon: '/favicon.ico',
   organizationName: 'mrousavy',
-  projectName: 'react-native-vision-camera',
+  projectName: 'react-native-vision-camera-support',
   markdown: {
     mermaid: true,
   },
@@ -29,7 +29,7 @@ module.exports = {
           gitBranchLabel2: '#ffffff',
           commitLabelColor: '#000000',
           commitLabelBackground: '#ffffff00',
-          commitLabelFontSize: 24
+          commitLabelFontSize: 24,
         },
         fontSize: 40,
         gantt: {
@@ -38,41 +38,34 @@ module.exports = {
           barGap: 15,
           topPadding: 15,
           leftPadding: 400,
-          barHeight: 90
+          barHeight: 90,
         },
         gitGraph: {
           showBranches: true,
           rotateCommitLabel: false,
           parallelCommits: false,
-          mainBranchName: 'Time'
-        }
+          mainBranchName: 'Time',
+        },
       },
     },
     algolia: {
       appId: 'NRK7PZXU6O',
       apiKey: '33d54e627c4587a6d8dbff79d5209e46',
       indexName: 'react-native-vision-camera2',
-      contextualSearch: false
+      contextualSearch: false,
     },
     colorMode: {
-      respectPrefersColorScheme: true
+      respectPrefersColorScheme: true,
     },
     prism: {
       theme: themes.github,
       darkTheme: themes.palenight,
-      additionalLanguages: [
-        'bash',
-        'json',
-        'kotlin',
-        'ruby',
-        'cmake',
-        'groovy',
-        'java',
-      ],
+      additionalLanguages: ['bash', 'json', 'kotlin', 'ruby', 'cmake', 'groovy', 'java'],
     },
     announcementBar: {
       id: 'shadowlens',
-      content: '<b>ShadowLens is out!!! 🥳🥳</b> See VisionCamera in action: <a target="_blank" rel="noopener noreferrer" href="https://apps.apple.com/app/shadowlens/id6471849004">Download ShadowLens for iOS</a> or <a target="_blank" rel="noopener noreferrer" href="https://play.google.com/store/apps/details?id=com.mrousavy.shadowlens">Download ShadowLens for Android</a>',
+      content:
+        '<b>ShadowLens is out!!! 🥳🥳</b> See VisionCamera in action: <a target="_blank" rel="noopener noreferrer" href="https://apps.apple.com/app/shadowlens/id6471849004">Download ShadowLens for iOS</a> or <a target="_blank" rel="noopener noreferrer" href="https://play.google.com/store/apps/details?id=com.mrousavy.shadowlens">Download ShadowLens for Android</a>',
       backgroundColor: '#e39600',
       textColor: '#ffffff',
       isCloseable: false,
@@ -92,17 +85,17 @@ module.exports = {
         {
           to: 'docs/api',
           label: 'API',
-          position: 'left'
+          position: 'left',
         },
         {
           href: 'https://github.com/mrousavy/react-native-vision-camera/tree/main/example',
           label: 'Example App',
-          position: 'left'
+          position: 'left',
         },
         {
           href: 'https://mrousavy.com/projects/shadowlens',
           label: 'ShadowLens',
-          position: 'left'
+          position: 'left',
         },
         {
           href: 'https://github.com/mrousavy/react-native-vision-camera',
@@ -119,7 +112,7 @@ module.exports = {
           items: [
             {
               label: 'Guides',
-              to: 'docs/guides'
+              to: 'docs/guides',
             },
             {
               label: 'API',
@@ -156,7 +149,7 @@ module.exports = {
               href: 'https://github.com/mrousavy/react-native-vision-camera',
             },
             {
-              label: 'Marc\'s Portfolio',
+              label: "Marc's Portfolio",
               href: 'https://mrousavy.com',
             },
           ],
@@ -168,27 +161,28 @@ module.exports = {
     metadata: [
       {
         name: 'author',
-        content: 'Marc Rousavy'
+        content: 'Marc Rousavy',
       },
       {
         name: 'keywords',
-        content: 'react, native, camera, react-native, react-native-camera, photo, record, video, react-native-vision-camera, VisionCamera, frame-processor, frame-processing, frame, qr, qr-code, barcode, scanning, detector, detection, documentation, coding, docs, guides, marc, rousavy, mrousavy'
+        content:
+          'react, native, camera, react-native, react-native-camera, photo, record, video, react-native-vision-camera, VisionCamera, frame-processor, frame-processing, frame, qr, qr-code, barcode, scanning, detector, detection, documentation, coding, docs, guides, marc, rousavy, mrousavy',
       },
       {
         name: 'og:title',
-        content: 'VisionCamera Documentation'
+        content: 'VisionCamera Documentation',
       },
       {
         name: 'og:type',
-        content: 'application'
+        content: 'application',
       },
       {
         name: 'og:description',
-        content: 'A powerful, high-performance React Native Camera library.'
+        content: 'A powerful, high-performance React Native Camera library.',
       },
       {
         name: 'og:image',
-        content: '/img/11.png'
+        content: '/img/11.png',
       },
     ],
   },
@@ -222,17 +216,17 @@ module.exports = {
       {
         name: 'VisionCamera',
         entryPoints: ['../package/src'],
-        exclude: "../package/src/index.ts",
+        exclude: '../package/src/index.ts',
         tsconfig: '../package/tsconfig.json',
         watch: process.env.TYPEDOC_WATCH,
         excludePrivate: true,
         excludeProtected: true,
         excludeExternals: true,
         excludeInternal: true,
-        readme: "none",
+        readme: 'none',
         sidebar: {
-          indexLabel: 'Overview'
-        }
+          indexLabel: 'Overview',
+        },
       },
     ],
   ],

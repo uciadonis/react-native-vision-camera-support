@@ -1,6 +1,6 @@
 {
   "name": "react-native-vision-camera-support",
-  "version": "4.5.4",
+  "version": "4.5.6",
   "description": "A powerful, high-performance React Native Camera library.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -72,23 +72,11 @@
     "processing",
     "realtime"
   ],
-  "repository": "https://github.com/uciadonis/react-native-vision-camera-support",
-  "author": "Adonis Montoya <uciadonis@gmail.com> (https://github.com/uciadonis)",
-  "contributors": [
-    {
-      "name": "Marc Rousavy",
-      "email": "me@mrousavy.com",
-      "url": "https://github.com/mrousavy"
-    },
-    {
-      "name": "Adonis Montoya",
-      "email": "uciadonis@gmail.com",
-      "url": "https://github.com/uciadonis"
-    }
-  ],
+  "repository": "https://github.com/mrousavy/react-native-vision-camera",
+  "author": "Marc Rousavy <me@mrousavy.com> (https://github.com/mrousavy)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/uciadonis/react-native-vision-camera-support/issues"
+    "url": "https://github.com/mrousavy/react-native-vision-camera/issues"
   },
   "homepage": "https://react-native-vision-camera.com/",
   "publishConfig": {
